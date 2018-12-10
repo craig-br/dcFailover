@@ -1,0 +1,36 @@
+---
+- name: Create SNOW record from Tower API Call
+  hosts: localhost
+  gather_facts: False
+  tasks:
+  - name: Open SNOW Incident/Change
+    snow_record:
+      username: "{{ snow_username }}"
+      password: "{{ snow_password }}"
+      instance: "{{ snow_instance }}"
+      state: "{{ snow_state }}"
+      data:
+        short_description: "{{ host_or_group }}: Service state is {{ service_state }} "
+        severity: "{{ snow_impact }}"
+        priority: "{{ snow_impact }}"
+        impact: "{{ snow_impact }}"
+        urgency: "{{ snow_impact }}"
+        category: "{{ snow_category }}"
+        comments: "{{ host_or_group }}: Service state is {{ service_state }}"
+        caller_id: "{{ snow_username }}"
+      table: "{{ snow_table }}"
+    register: new_change_request
+    failed_when: new_change_request.failed != false
+    when: service_state == "CRITICAL"
+    tags:
+      - snow
+  - name: Incident details
+    debug:
+      msg: >
+          A new incident has been logged with ID: "{{new_change_request.record.number}}" for "{{ host_or_group }}".
+    when: service_state == "CRITICAL"
+  - name: Set the incident record number
+    set_stats:
+      data:
+        incident_record_number: "{{new_change_request.record.number}}"
+    when: service_state == "CRITICAL"

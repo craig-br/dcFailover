@@ -1,0 +1,16 @@
+---
+- name: Update SNOW record from workflow
+  hosts: localhost
+  gather_facts: False
+  tasks:
+  - name: Update SNOW Incident/Change
+    snow_record:
+      username: "{{ snow_username }}"
+      password: "{{ snow_password }}"
+      instance: "{{ snow_instance }}"
+      state: "{{ snow_state }}"
+      number: "{{ incident_record_number }}"
+      data:
+        comments: "{{ host_or_group }}: Service state has been restored."
+        state: 6
+      table: "{{ snow_table }}"
