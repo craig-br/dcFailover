@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-http_listen_port: 9094
-=======
-http_listen_port: 80
->>>>>>> 9dc1d50af1786d41bb9723808ba2c9497117fe4d
+http_listen_port: 9095
