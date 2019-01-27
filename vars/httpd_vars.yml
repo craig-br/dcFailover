@@ -1,6 +1,3 @@
 ---
 http_documentroot: /var/www/html
-<<<<<<< HEAD
-=======
->>>>>>> 9d94d3ba9144ad4bfd5c337beef370d8064bc94d
 http_listen_port: 9095
