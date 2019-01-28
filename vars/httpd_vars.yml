@@ -1,3 +1,7 @@
 ---
 http_documentroot: /var/www/html
+<<<<<<< HEAD
 http_listen_port: 80
+=======
+http_listen_port: 9091
+>>>>>>> f804af6a581220496398b2ce3c33f14372f8b6d6
