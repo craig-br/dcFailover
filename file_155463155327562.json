@@ -1,0 +1,6 @@
+{
+     "extra_vars": {
+        "host_or_group": "",
+        "service_state": ""
+      }
+}
