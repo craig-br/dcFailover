@@ -1,0 +1,9 @@
+---
+- hosts: AdminServers
+  remote_user: root
+
+  tasks:
+  - name: Fteching and writing latest changes from Git
+    shell: ./git_rebase.bash
+    args:
+      chdir: "{{ dir_base }}"
