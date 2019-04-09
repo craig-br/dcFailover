@@ -1,4 +1,4 @@
-!#/bin/bash
+#!/bin/bash
 ## Overwrite local changes from master branch
 
 git fetch --all
