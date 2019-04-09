@@ -1,4 +1,6 @@
-#!/bin/bash
+
+
+
 #
 # Event handler script for restarting the web server on the local machine
 #
@@ -12,9 +14,10 @@ R=$RANDOM
 AUXFILE="file_${TIMESTAMP}${R}.json"
 DEBUGFILE="debug_${TIMESTAMP}${R}.txt"
 
-echo "{"		                   >> ${AUXFILE}
+echo "{"                                   >> ${AUXFILE}
 echo "     \"extra_vars\": {"              >> ${AUXFILE}
-echo "        \"host_or_group\": \"${4}\"" >> ${AUXFILE}
+echo "        \"host_or_group\": \"${4}\"," >> ${AUXFILE}
+echo "        \"service_state\": \"${1}\"" >> ${AUXFILE}
 echo "      }"                             >> ${AUXFILE}
 echo "}"                                   >> ${AUXFILE}
 
@@ -28,22 +31,22 @@ echo "}"                                   >> ${AUXFILE}
 
 case "$1" in
 OK)
-	;;
+        ;;
 WARNING)
-	;;
+        ;;
 UNKNOWN)
-	;;
+        ;;
 CRITICAL)
-	case "$2" in
-	SOFT|HARD)
-		case "$3" in
-		2)
-		logger "ooOoo--- RUNNING ANSIBLE PLAYBOOK ---ooOoo"
-		/usr/bin/curl -X POST --user itoperator:redhat123. --data @${AUXFILE} https://craig-tower/api/v1/job_templates/24/launch/ -k -H "Content-Type: application/json"
-			;;
-		esac
+        case "$2" in
+        SOFT|HARD)
+                case "$3" in
+                2)
+                logger "ooOoo--- RUNNING ANSIBLE PLAYBOOK ---ooOoo"
+		/usr/bin/curl -X POST --user itoperator:redhat123. --data @${AUXFILE} https://tower/api/v1/job_templates/24/launch/ -k -H "Content-Type: application/json"
+                        ;;
+                esac
 
-	esac
-	;;
+        esac
+        ;;
 esac
-exit 0
+exit 0 
