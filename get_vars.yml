@@ -3,6 +3,15 @@
   remote_user: root
 
   tasks:
+  - name: Fteching and writing latest changes from Git
+    shell: ./git_rebase.bash
+    args:
+      chdir: "{{ dir_base }}"
+
+- hosts: AdminServers
+  remote_user: root
+
+  tasks:
   - name: Write the parameter:value
     template: src=templates/key_value.j2 dest={{ dir_base }}/tmp/key_value
 
@@ -10,3 +19,13 @@
     shell: ./tools/merge.bash {{ dir_base }}
     args:
       chdir: "{{ dir_base }}"
+
+- hosts: AdminServers
+  remote_user: root
+
+  tasks:
+  - name: Running the git commit
+    shell: ./publica.bash
+    args:
+      chdir: "{{ dir_base }}"
+
