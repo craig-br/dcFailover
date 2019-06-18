@@ -1,9 +1,8 @@
 ---
-snow_instance: dev66962
+snow_instance: dev81943
 snow_state: present
 
 #data variables
-# Message added by Carlos
 snow_username: "{{ vault_username }}"
 snow_password: "{{ vault_password }}"
 # snow_severity: 1
