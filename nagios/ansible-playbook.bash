@@ -1,6 +1,3 @@
-
-
-
 #
 # Event handler script for restarting the web server on the local machine
 #
