@@ -13,5 +13,5 @@
 
     - name: test gif 
       uri: 
-        url: https://api.telegram.org/bot871909373:AAHYEA3ApjXXdvVm670GiYa7oEhdLm0WkNQ/sendVideo?chat_id=-1001160286622&video=https://media.giphy.com/media/dbtDDSvWErdf2/giphy.gif
+        url: https://api.telegram.org/bot871909373:AAHYEA3ApjXXdvVm670GiYa7oEhdLm0WkNQ/sendVideo?chat_id=-1001160286622&video={{ webapp_url }}
         method: POST
