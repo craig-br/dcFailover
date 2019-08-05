@@ -10,4 +10,3 @@
          token: "{{ tokenBot }}"
          chat_id: "{{ chatID }}"
          msg: "Ansible - interactive login for {{ host_or_group }} : {{ tty_on_off }}"
-
