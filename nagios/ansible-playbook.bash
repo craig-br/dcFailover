@@ -40,7 +40,7 @@ CRITICAL)
                 2)
                 logger "ooOoo--- RUNNING ANSIBLE PLAYBOOK ---ooOoo"
 /usr/bin/curl -X POST --user itoperator:redhat123. --data @${AUXFILE} https://craig-tower/api/v2/workflow_job_templates/"HTTP Remediate++ACME"/launch/ -k -H "Content-Type: application/json"                        
-/usr/bin/curl -X POST --user itoperator:redhat123. --data @${AUXFILE} https://10.9.61.135/api/v1/job_templates/24/launch/ -k -H "Content-Type: application/json"
+#/usr/bin/curl -X POST --user itoperator:redhat123. --data @${AUXFILE} https://10.9.61.135/api/v1/job_templates/24/launch/ -k -H "Content-Type: application/json"
 			;;
 		esac
 
